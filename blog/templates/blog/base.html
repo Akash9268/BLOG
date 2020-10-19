@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>BLog</title>
+	<!-- bootstrap -->
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- Optional theme -->
+
+
+
+	<!-- MEdium styke editor -->
+	<script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+	<!-- custom css -->
+	<link rel="stylesheet" href="{% static '/blog/css/blog.css' %}">
+
+
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Philosopher&family=Piedra&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Rowdies&display=swap" rel="stylesheet">
+
+
+
+
+
+</head>
+<body style = "background-color: #f7f7da">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand bigbrand middle" href="{% url 'post_list' %}">MyBlog</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link middle" href="{% url 'about' %}">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link middle" href="https://github.com/">GitHub</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link middle" href="https://www.linkedin.com/">LinkedIn</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+  	{% if user.is_authenticated %}
+  	 <li class="nav-item active">
+      <a class="nav-link middle" href="{% url 'post_new' %}">New Post</a>
+    </li>
+     <li class="nav-item active">
+      <a class="nav-link middle" href="{% url 'post_draft_list' %}">Drafts</a>
+    </li>
+     <li class="nav-item active">
+      <a class="nav-link middle" href="{% url 'logout' %}">Logout</a>
+    </li>
+    <li class="nav-item active">
+    	<a class="nav-link middle"><h5>Welcome : {{user.username}}</h5></a>
+    </li>
+    {% else %}
+     <li class="nav-item active">
+      <a class="nav-link middle" href="{% url 'login' %}">Login</a>
+    </li>
+  	{% endif %}
+   
+    
+  </ul>
+</nav>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+ 	
+ 
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="blog_posts" style=" margin-left: 10px; margin-top: 80px;">
+					
+					{% block content %}
+					{% endblock %}
+				</div>
+			</div>
+			
+		</div>
+		
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="centerstage">
+	{% for post in post_list %} <!-- when ever working with a ListView the objects gets created in a list as modelname_list where model_name is under small -->
+	<div class="post">
+		<h1 class="list"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</h1></a>
+		<div class="date">
+			<p>Published on: {{post.published_date|date:"D M Y"}}</p> <!-- mdofying templates using "|" following with a feature  -->
+		</div>
+		<a href="{% url 'post_detail' pk=post.pk %}">Comments : {{post.approve_comments.count}}</a>
+			
+	</div>
+	{% endfor %}
+
+	
+</div>
+{% endblock %}

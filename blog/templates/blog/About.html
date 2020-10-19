@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+{% load static %}
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner ">
+    <div class="carousel-item active">
+      <img class="image" src="https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="d-block w-100" alt="First slide">
+      <div style="margin-left: -20px; text-align: center;" class="carousel-caption d-md-block content content">
+        <h3><strong></strong></h3>
+        <p></p>
+      </div>
+    </div>  
+</div>
+<img id="author1" src="{% static 'blog/images/akash.jpeg' %}">
+<u><h6 id="cindy">Aakash Sharma (Creator)</h6></u>
+<img id="author2" src="https://img-a.udemycdn.com/user/200_H/9685726_67e7_4.jpg">
+<u><h6 id="lexa">Jose (Instructor)</h6></u>
+	
+{% endblock %}
